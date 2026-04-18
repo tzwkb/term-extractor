@@ -1206,7 +1206,7 @@ class LLMProcessor:
         Returns:
             Dict[str, str]: 包含各个文件路径的字典
         """
-        self.logger.info("🚀 开始完整GPT批处理流程")
+        self.logger.info("🚀 开始完整LLM批处理流程")
 
         try:
             # 步骤1: 并发处理所有文本
