@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-OpenAI GPT批处理术语抽取 - 主程序
+OpenAI LLM批处理术语抽取 - 主程序
 提供简单的命令行界面和快速配置选项
 """
 
@@ -13,7 +13,7 @@ from typing import List, Optional, Tuple
 
 # 导入我们的模块
 try:
-    from gpt_processor import GPTProcessor, load_texts_from_file
+    from llm_processor import LLMProcessor, load_texts_from_file
     from config import (
         OPENAI_API_KEY, OPENAI_BASE_URL, BATCH_CONFIG,
         SYSTEM_PROMPT, get_user_prompt, TEXT_SPLITTING
@@ -571,7 +571,7 @@ class TermExtractionApp:
         if not self.processor:
             # 获取base_url配置
             base_url = os.getenv("OPENAI_BASE_URL", OPENAI_BASE_URL)
-            self.processor = GPTProcessor(
+            self.processor = LLMProcessor(
                 api_key=self.api_key,
                 base_url=base_url
             )
@@ -614,7 +614,7 @@ class TermExtractionApp:
     
     def run(self):
         """运行主程序"""
-        print("🎉 欢迎使用OpenAI GPT批处理术语抽取工具!")
+        print("🎉 欢迎使用OpenAI LLM批处理术语抽取工具!")
         print("=" * 50)
 
         # 1. 设置API密钥
@@ -658,7 +658,7 @@ class TermExtractionApp:
 def main():
     """主函数"""
     parser = argparse.ArgumentParser(
-        description="OpenAI GPT批处理术语抽取工具",
+        description="OpenAI LLM批处理术语抽取工具",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 示例用法:
